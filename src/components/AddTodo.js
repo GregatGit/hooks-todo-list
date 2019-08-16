@@ -11,12 +11,13 @@ const AddTodo = ({ addTodo, todos }) => {
     e.preventDefault()
     if (todo.length < 3) return
 
+    // check if the name is free
     for (let i in todos){
       if (todos[i].todo === todo){
         setWarning(`${todo} already there`)
         setInterval(() => {
           setWarning('')
-        }, 1000);
+        }, 1300);
         setTodo('')
         return
       }
