@@ -31,8 +31,7 @@ const AddTodo = ({ addTodo, todos }) => {
   }
   return (
     <div>
-      Add Todo
-      <br />
+      <h2>Add Todo</h2>
       <form type="submit" onSubmit={handleSubmit} >
       <label>Task (3 to 15 characters):</label>
       <input

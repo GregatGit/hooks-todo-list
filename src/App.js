@@ -14,8 +14,9 @@ function App({ deleteCompleted }) {
   }
   return (
     <div>
-      To Do List
+      <h1>To Do List</h1>
       <Todos />
+      <p>❌ will remove task from list</p>
       <AddTodo />
       <button onClick={handleClick}>Remove Completed</button>
     </div>

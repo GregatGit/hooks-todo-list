@@ -1,4 +1,4 @@
-import { TODO_TOGGLE, TODO_ADD, DELETE_COMPLETED } from '../actions'
+import { TODO_TOGGLE, TODO_ADD, DELETE_COMPLETED, TODO_DELETE } from '../actions'
 
 const tempTodos = [
   { todo: 'Walk dog', done: false },
@@ -24,6 +24,11 @@ export default function(state = tempTodos, action) {
         }
       }
       return purgedTodos
+
+    case TODO_DELETE:
+      console.log('boom')
+      todos.splice(action.payload, 1)
+      return todos
      default:
        return todos 
   }

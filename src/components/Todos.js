@@ -1,12 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { toggleTodo } from '../actions'
+import { toggleTodo, deleteTodo } from '../actions'
 
-const Todos = ({ todos, toggleTodo }) => {
+const Todos = ({ todos, toggleTodo, deleteTodo }) => {
 
  const handleCheckBox = (i) => {
     toggleTodo(i)
+  }
+
+  const handleDelete = (i) => {
+    deleteTodo(i)
   }
   return (
     <ul>
@@ -17,6 +21,7 @@ const Todos = ({ todos, toggleTodo }) => {
           <li key={index}>
             <input onChange={() => handleCheckBox(index)} type="checkbox" id={item} name={item} checked={checked} />
             {item.todo}
+            <span onClick={() => handleDelete(index)} style={{marginLeft: 10}}>❌</span>
           </li>
         )
       })}
@@ -29,4 +34,4 @@ const mapStateToProps = (state, ownProps) => {
     todos: state.todos,
   }
 }
-export default connect(mapStateToProps, { toggleTodo })(Todos)
+export default connect(mapStateToProps, { toggleTodo, deleteTodo })(Todos)
